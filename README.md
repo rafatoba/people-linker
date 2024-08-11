@@ -1,2 +1,2 @@
 # people-linker
-Start project.
+Start project. Will help to check things.
