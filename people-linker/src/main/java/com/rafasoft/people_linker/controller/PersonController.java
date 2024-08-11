@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/person")
 @Log4j2
@@ -19,4 +21,12 @@ public class PersonController {
         return Mono.just(new Person("Jaime", "Gomez"));
     }
 
+    @GetMapping()
+    public Mono<List<Person>> getPersons() {
+        log.info("Retrieving all people");
+        return Mono
+                .just(List.of(
+                        new Person("Jaime", "Gomez"),
+                        new Person("Juan", "Perez")));
+    }
 }
